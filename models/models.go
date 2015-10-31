@@ -9,6 +9,9 @@ type EntityModel struct {
 }
 type RouteEntityModel struct {
 	Host string `json:"host"`
+	Path string `json:"path"`
+	DomainUrl string `json:"domain_url"`
+	AppsUrl string `json:"apps_url"`
 }
 
 type ErrorModel struct {
