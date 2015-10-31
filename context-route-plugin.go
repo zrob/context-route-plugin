@@ -26,6 +26,12 @@ func (crPlugin *ContextRoutePlugin) Run(cliConnection plugin.CliConnection, args
 		//		} else {
 		//			print help
 		//		}
+	} else if args[0] == "delete-context-route" {
+		//		if len(args) == 4 {
+		commands.DeleteContextRoute(cliConnection, args)
+		//		} else {
+		//			print help
+		//		}
 	}
 }
 
@@ -52,6 +58,14 @@ func (crPlugin *ContextRoutePlugin) GetMetadata() plugin.PluginMetadata {
 				HelpText: "maps a context route to an app",
 				UsageDetails: plugin.Usage{
 					Usage: "map-context-route APP DOMAIN HOSTNAME PATH",
+				},
+			},
+			{
+				Name:     "delete-context-route",
+				Alias:    "dcr",
+				HelpText: "deletes a context route",
+				UsageDetails: plugin.Usage{
+					Usage: "delete-context-route DOMAIN HOSTNAME PATH",
 				},
 			},
 		},
