@@ -20,6 +20,12 @@ func (crPlugin *ContextRoutePlugin) Run(cliConnection plugin.CliConnection, args
 		//		} else {
 		//			print help
 		//		}
+	} else if args[0] == "map-context-route" {
+		//		if len(args) == 4 {
+		commands.MapContextRoute(cliConnection, args)
+		//		} else {
+		//			print help
+		//		}
 	}
 }
 
@@ -38,6 +44,14 @@ func (crPlugin *ContextRoutePlugin) GetMetadata() plugin.PluginMetadata {
 				HelpText: "creates a route with a path",
 				UsageDetails: plugin.Usage{
 					Usage: "create-context-route SPACE DOMAIN HOSTNAME PATH",
+				},
+			},
+			{
+				Name:     "map-context-route",
+				Alias:    "mcr",
+				HelpText: "maps a context route to an app",
+				UsageDetails: plugin.Usage{
+					Usage: "map-context-route APP DOMAIN HOSTNAME PATH",
 				},
 			},
 		},

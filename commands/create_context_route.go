@@ -22,18 +22,18 @@ func CreateContextRoute(cliConnection plugin.CliConnection, args []string) {
 	spaces := SpacesModel{}
 	err = json.Unmarshal([]byte(output[0]), &spaces)
 	FreakOut(err)
-	if len(spaces.Spaces) == 0 {
+	if len(spaces.Resources) == 0 {
 		fmt.Printf("Space %s not found", space)
 		return
 	}
-	spaceGuid := spaces.Spaces[0].Metadata.Guid
+	spaceGuid := spaces.Resources[0].Metadata.Guid
 
 	output, err = cliConnection.CliCommandWithoutTerminalOutput("curl", fmt.Sprintf("v2/domains?q=name:%s", domain))
 	FreakOut(err)
 	domains := DomainsModel{}
 	err = json.Unmarshal([]byte(output[0]), &domains)
 	FreakOut(err)
-	if len(spaces.Spaces) == 0 {
+	if len(domains.Resources) == 0 {
 		fmt.Printf("Domain %s not found", domain)
 		return
 	}

@@ -27,12 +27,19 @@ type RouteModel struct {
 	Entity   RouteEntityModel `json:"entity"`
 }
 type RoutesModel struct {
-	Routes []RouteModel `json:"resources"`
+	Resources []RouteModel `json:"resources"`
 }
 type SpaceModel struct {
 	Metadata MetadataModel `json:"metadata"`
 	Entity   EntityModel   `json:"entity"`
 }
 type SpacesModel struct {
-	Spaces []SpaceModel `json:"resources"`
+	Resources []SpaceModel `json:"resources"`
+}
+type AppModel struct {
+	Metadata MetadataModel `json:"metadata"`
+	Entity   EntityModel   `json:"entity"`
+}
+type AppsModel struct {
+	Resources []AppModel `json:"resources"`
 }
