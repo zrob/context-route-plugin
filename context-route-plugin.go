@@ -26,6 +26,12 @@ func (crPlugin *ContextRoutePlugin) Run(cliConnection plugin.CliConnection, args
 		//		} else {
 		//			print help
 		//		}
+	} else if args[0] == "unmap-context-route" {
+		//		if len(args) == 4 {
+		commands.UnmapContextRoute(cliConnection, args)
+		//		} else {
+		//			print help
+		//		}
 	} else if args[0] == "delete-context-route" {
 		//		if len(args) == 4 {
 		commands.DeleteContextRoute(cliConnection, args)
@@ -58,6 +64,14 @@ func (crPlugin *ContextRoutePlugin) GetMetadata() plugin.PluginMetadata {
 				HelpText: "maps a context route to an app",
 				UsageDetails: plugin.Usage{
 					Usage: "map-context-route APP DOMAIN HOSTNAME PATH",
+				},
+			},
+			{
+				Name:     "unmap-context-route",
+				Alias:    "ucr",
+				HelpText: "unmaps a context route from an app",
+				UsageDetails: plugin.Usage{
+					Usage: "unmap-context-route APP DOMAIN HOSTNAME PATH",
 				},
 			},
 			{
