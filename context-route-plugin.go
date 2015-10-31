@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/cloudfoundry/cli/plugin"
 	"github.com/zrob/context-route-plugin/commands"
 )
@@ -15,29 +17,29 @@ func main() {
 func (crPlugin *ContextRoutePlugin) Run(cliConnection plugin.CliConnection, args []string) {
 
 	if args[0] == "create-context-route" {
-		//		if len(args) == 4 {
-		commands.CreateContextRoute(cliConnection, args)
-		//		} else {
-		//			print help
-		//		}
+		if len(args) == 4 {
+			commands.CreateContextRoute(cliConnection, args)
+		} else {
+			fmt.Println(crPlugin.GetMetadata().Commands[0].UsageDetails.Usage)
+		}
 	} else if args[0] == "map-context-route" {
-		//		if len(args) == 4 {
-		commands.MapContextRoute(cliConnection, args)
-		//		} else {
-		//			print help
-		//		}
+		if len(args) == 4 {
+			commands.MapContextRoute(cliConnection, args)
+		} else {
+			fmt.Println(crPlugin.GetMetadata().Commands[1].UsageDetails.Usage)
+		}
 	} else if args[0] == "unmap-context-route" {
-		//		if len(args) == 4 {
-		commands.UnmapContextRoute(cliConnection, args)
-		//		} else {
-		//			print help
-		//		}
+		if len(args) == 4 {
+			commands.UnmapContextRoute(cliConnection, args)
+		} else {
+			fmt.Println(crPlugin.GetMetadata().Commands[2].UsageDetails.Usage)
+		}
 	} else if args[0] == "delete-context-route" {
-		//		if len(args) == 4 {
-		commands.DeleteContextRoute(cliConnection, args)
-		//		} else {
-		//			print help
-		//		}
+		if len(args) == 3 {
+			commands.DeleteContextRoute(cliConnection, args)
+		} else {
+			fmt.Println(crPlugin.GetMetadata().Commands[3].UsageDetails.Usage)
+		}
 	}
 }
 
